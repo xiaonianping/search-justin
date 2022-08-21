@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.justin.search.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.justin.search.model.User">
+    <!--@mbg.generated-->
+    <!--@Table tb_user-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="channel_id" jdbcType="BIGINT" property="channelId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="head" jdbcType="VARCHAR" property="head" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    <result column="wx_qrcode" jdbcType="VARCHAR" property="wxQrcode" />
+    <result column="is_follow_official" jdbcType="INTEGER" property="isFollowOfficial" />
+    <result column="subscription_time" jdbcType="BIGINT" property="subscriptionTime" />
+    <result column="sent_times" jdbcType="INTEGER" property="sentTimes" />
+    <result column="shopper_qrcode" jdbcType="VARCHAR" property="shopperQrcode" />
+    <result column="live_qrcode" jdbcType="VARCHAR" property="liveQrcode" />
+    <result column="profile" jdbcType="VARCHAR" property="profile" />
+    <result column="is_member" jdbcType="INTEGER" property="isMember" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="not_disturb" jdbcType="INTEGER" property="notDisturb" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="last_active_time" jdbcType="BIGINT" property="lastActiveTime" />
+    <result column="advert_address" jdbcType="VARCHAR" property="advertAddress" />
+    <result column="poster_address" jdbcType="VARCHAR" property="posterAddress" />
+    <result column="invite_qr_code" jdbcType="VARCHAR" property="inviteQrCode" />
+    <result column="clock_qr_code" jdbcType="VARCHAR" property="clockQrCode" />
+    <result column="last_subscription_time" jdbcType="BIGINT" property="lastSubscriptionTime" />
+    <result column="unsubscribe_time" jdbcType="BIGINT" property="unsubscribeTime" />
+    <result column="apply_id" jdbcType="VARCHAR" property="applyId" />
+    <result column="advertise_type" jdbcType="INTEGER" property="advertiseType" />
+    <result column="advertise_id" jdbcType="BIGINT" property="advertiseId" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="red_packet_time" jdbcType="BIGINT" property="redPacketTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, open_id, channel_id, `name`, `password`, nick_name, head, gender, phone, email, 
+    birthday, parent_id, create_time, update_time, wx_qrcode, is_follow_official, subscription_time, 
+    sent_times, shopper_qrcode, live_qrcode, profile, is_member, `level`, not_disturb, 
+    `status`, last_active_time, advert_address, poster_address, invite_qr_code, clock_qr_code, 
+    last_subscription_time, unsubscribe_time, apply_id, advertise_type, advertise_id, 
+    country, province, city, red_packet_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from tb_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.justin.search.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_user (open_id, channel_id, `name`, 
+      `password`, nick_name, head, 
+      gender, phone, email, 
+      birthday, parent_id, create_time, 
+      update_time, wx_qrcode, is_follow_official, 
+      subscription_time, sent_times, shopper_qrcode, 
+      live_qrcode, profile, is_member, 
+      `level`, not_disturb, `status`, 
+      last_active_time, advert_address, poster_address, 
+      invite_qr_code, clock_qr_code, last_subscription_time, 
+      unsubscribe_time, apply_id, advertise_type, 
+      advertise_id, country, province, 
+      city, red_packet_time)
+    values (#{openId,jdbcType=VARCHAR}, #{channelId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{wxQrcode,jdbcType=VARCHAR}, #{isFollowOfficial,jdbcType=INTEGER}, 
+      #{subscriptionTime,jdbcType=BIGINT}, #{sentTimes,jdbcType=INTEGER}, #{shopperQrcode,jdbcType=VARCHAR}, 
+      #{liveQrcode,jdbcType=VARCHAR}, #{profile,jdbcType=VARCHAR}, #{isMember,jdbcType=INTEGER}, 
+      #{level,jdbcType=INTEGER}, #{notDisturb,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{lastActiveTime,jdbcType=BIGINT}, #{advertAddress,jdbcType=VARCHAR}, #{posterAddress,jdbcType=VARCHAR}, 
+      #{inviteQrCode,jdbcType=VARCHAR}, #{clockQrCode,jdbcType=VARCHAR}, #{lastSubscriptionTime,jdbcType=BIGINT}, 
+      #{unsubscribeTime,jdbcType=BIGINT}, #{applyId,jdbcType=VARCHAR}, #{advertiseType,jdbcType=INTEGER}, 
+      #{advertiseId,jdbcType=BIGINT}, #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{redPacketTime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.justin.search.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="head != null">
+        head,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="wxQrcode != null">
+        wx_qrcode,
+      </if>
+      <if test="isFollowOfficial != null">
+        is_follow_official,
+      </if>
+      <if test="subscriptionTime != null">
+        subscription_time,
+      </if>
+      <if test="sentTimes != null">
+        sent_times,
+      </if>
+      <if test="shopperQrcode != null">
+        shopper_qrcode,
+      </if>
+      <if test="liveQrcode != null">
+        live_qrcode,
+      </if>
+      <if test="profile != null">
+        profile,
+      </if>
+      <if test="isMember != null">
+        is_member,
+      </if>
+      <if test="level != null">
+        `level`,
+      </if>
+      <if test="notDisturb != null">
+        not_disturb,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="lastActiveTime != null">
+        last_active_time,
+      </if>
+      <if test="advertAddress != null">
+        advert_address,
+      </if>
+      <if test="posterAddress != null">
+        poster_address,
+      </if>
+      <if test="inviteQrCode != null">
+        invite_qr_code,
+      </if>
+      <if test="clockQrCode != null">
+        clock_qr_code,
+      </if>
+      <if test="lastSubscriptionTime != null">
+        last_subscription_time,
+      </if>
+      <if test="unsubscribeTime != null">
+        unsubscribe_time,
+      </if>
+      <if test="applyId != null">
+        apply_id,
+      </if>
+      <if test="advertiseType != null">
+        advertise_type,
+      </if>
+      <if test="advertiseId != null">
+        advertise_id,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="redPacketTime != null">
+        red_packet_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="wxQrcode != null">
+        #{wxQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="isFollowOfficial != null">
+        #{isFollowOfficial,jdbcType=INTEGER},
+      </if>
+      <if test="subscriptionTime != null">
+        #{subscriptionTime,jdbcType=BIGINT},
+      </if>
+      <if test="sentTimes != null">
+        #{sentTimes,jdbcType=INTEGER},
+      </if>
+      <if test="shopperQrcode != null">
+        #{shopperQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="liveQrcode != null">
+        #{liveQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="profile != null">
+        #{profile,jdbcType=VARCHAR},
+      </if>
+      <if test="isMember != null">
+        #{isMember,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="notDisturb != null">
+        #{notDisturb,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="lastActiveTime != null">
+        #{lastActiveTime,jdbcType=BIGINT},
+      </if>
+      <if test="advertAddress != null">
+        #{advertAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="posterAddress != null">
+        #{posterAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="inviteQrCode != null">
+        #{inviteQrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clockQrCode != null">
+        #{clockQrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastSubscriptionTime != null">
+        #{lastSubscriptionTime,jdbcType=BIGINT},
+      </if>
+      <if test="unsubscribeTime != null">
+        #{unsubscribeTime,jdbcType=BIGINT},
+      </if>
+      <if test="applyId != null">
+        #{applyId,jdbcType=VARCHAR},
+      </if>
+      <if test="advertiseType != null">
+        #{advertiseType,jdbcType=INTEGER},
+      </if>
+      <if test="advertiseId != null">
+        #{advertiseId,jdbcType=BIGINT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="redPacketTime != null">
+        #{redPacketTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.justin.search.model.User">
+    <!--@mbg.generated-->
+    update tb_user
+    <set>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        head = #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="wxQrcode != null">
+        wx_qrcode = #{wxQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="isFollowOfficial != null">
+        is_follow_official = #{isFollowOfficial,jdbcType=INTEGER},
+      </if>
+      <if test="subscriptionTime != null">
+        subscription_time = #{subscriptionTime,jdbcType=BIGINT},
+      </if>
+      <if test="sentTimes != null">
+        sent_times = #{sentTimes,jdbcType=INTEGER},
+      </if>
+      <if test="shopperQrcode != null">
+        shopper_qrcode = #{shopperQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="liveQrcode != null">
+        live_qrcode = #{liveQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="profile != null">
+        profile = #{profile,jdbcType=VARCHAR},
+      </if>
+      <if test="isMember != null">
+        is_member = #{isMember,jdbcType=INTEGER},
+      </if>
+      <if test="level != null">
+        `level` = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="notDisturb != null">
+        not_disturb = #{notDisturb,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="lastActiveTime != null">
+        last_active_time = #{lastActiveTime,jdbcType=BIGINT},
+      </if>
+      <if test="advertAddress != null">
+        advert_address = #{advertAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="posterAddress != null">
+        poster_address = #{posterAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="inviteQrCode != null">
+        invite_qr_code = #{inviteQrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clockQrCode != null">
+        clock_qr_code = #{clockQrCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastSubscriptionTime != null">
+        last_subscription_time = #{lastSubscriptionTime,jdbcType=BIGINT},
+      </if>
+      <if test="unsubscribeTime != null">
+        unsubscribe_time = #{unsubscribeTime,jdbcType=BIGINT},
+      </if>
+      <if test="applyId != null">
+        apply_id = #{applyId,jdbcType=VARCHAR},
+      </if>
+      <if test="advertiseType != null">
+        advertise_type = #{advertiseType,jdbcType=INTEGER},
+      </if>
+      <if test="advertiseId != null">
+        advertise_id = #{advertiseId,jdbcType=BIGINT},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="redPacketTime != null">
+        red_packet_time = #{redPacketTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.justin.search.model.User">
+    <!--@mbg.generated-->
+    update tb_user
+    set open_id = #{openId,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      head = #{head,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      wx_qrcode = #{wxQrcode,jdbcType=VARCHAR},
+      is_follow_official = #{isFollowOfficial,jdbcType=INTEGER},
+      subscription_time = #{subscriptionTime,jdbcType=BIGINT},
+      sent_times = #{sentTimes,jdbcType=INTEGER},
+      shopper_qrcode = #{shopperQrcode,jdbcType=VARCHAR},
+      live_qrcode = #{liveQrcode,jdbcType=VARCHAR},
+      profile = #{profile,jdbcType=VARCHAR},
+      is_member = #{isMember,jdbcType=INTEGER},
+      `level` = #{level,jdbcType=INTEGER},
+      not_disturb = #{notDisturb,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      last_active_time = #{lastActiveTime,jdbcType=BIGINT},
+      advert_address = #{advertAddress,jdbcType=VARCHAR},
+      poster_address = #{posterAddress,jdbcType=VARCHAR},
+      invite_qr_code = #{inviteQrCode,jdbcType=VARCHAR},
+      clock_qr_code = #{clockQrCode,jdbcType=VARCHAR},
+      last_subscription_time = #{lastSubscriptionTime,jdbcType=BIGINT},
+      unsubscribe_time = #{unsubscribeTime,jdbcType=BIGINT},
+      apply_id = #{applyId,jdbcType=VARCHAR},
+      advertise_type = #{advertiseType,jdbcType=INTEGER},
+      advertise_id = #{advertiseId,jdbcType=BIGINT},
+      country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      red_packet_time = #{redPacketTime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

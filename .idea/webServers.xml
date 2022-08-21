@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d2f9429b-1735-48f8-990d-92aa2b061c2e" name="justin-vm" url="http://175.178.241.47:9200">
+        <fileTransfer rootFolder="/opt/docker-workspace/apps" accessType="SFTP" host="175.178.241.47" port="22" sshConfigId="3f9daae8-e820-4451-b507-ed6571e85579" sshConfig="root@175.178.241.47:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

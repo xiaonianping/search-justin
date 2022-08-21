@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.justin.search.mapper.KongLogMapper">
+    <resultMap id="BaseResultMap" type="com.justin.search.model.KongLog">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="trace_id" jdbcType="VARCHAR" property="traceId"/>
+        <result column="request_url" jdbcType="VARCHAR" property="requestUrl"/>
+        <result column="remote_addr" jdbcType="VARCHAR" property="remoteAddr"/>
+        <result column="request_method" jdbcType="VARCHAR" property="requestMethod"/>
+        <result column="query_string" jdbcType="VARCHAR" property="queryString"/>
+        <result column="status" jdbcType="SMALLINT" property="status"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="user_agent" jdbcType="VARCHAR" property="userAgent"/>
+        <result column="route_name" jdbcType="VARCHAR" property="routeName"/>
+        <result column="service_name" jdbcType="VARCHAR" property="serviceName"/>
+        <result column="upstream_uri" jdbcType="VARCHAR" property="upstreamUri"/>
+        <result column="request_size" jdbcType="INTEGER" property="requestSize"/>
+        <result column="content_length" jdbcType="INTEGER" property="contentLength"/>
+        <result column="started_at" jdbcType="TIMESTAMP" property="startedAt"/>
+        <result column="request_body" jdbcType="LONGVARCHAR" property="requestBody"/>
+        <result column="response_body" jdbcType="LONGVARCHAR" property="responseBody"/>
+        <result column="retry_count" jdbcType="INTEGER" property="retryCount"/>
+        <result column="custom_id" jdbcType="VARCHAR" property="customId"/>
+        <result column="proxy_latency" jdbcType="INTEGER" property="proxyLatency"/>
+        <result column="kong_latency" jdbcType="INTEGER" property="kongLatency"/>
+        <result column="request_latency" jdbcType="INTEGER" property="requestLatency"/>
+        <result column="log_message" jdbcType="LONGVARCHAR" property="logMessage"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+                , trace_id, request_url, remote_addr, request_method, query_string, status, create_date,
+    user_agent, route_name, service_name, upstream_uri, request_size, content_length,
+    started_at, retry_count, custom_id, proxy_latency, kong_latency, request_latency,
+    request_body, response_body, log_message
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_kong_log
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertSelective" parameterType="com.justin.search.model.KongLog">
+        insert into t_kong_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="traceId != null">
+                trace_id,
+            </if>
+            <if test="requestUrl != null">
+                request_url,
+            </if>
+            <if test="remoteAddr != null">
+                remote_addr,
+            </if>
+            <if test="requestMethod != null">
+                request_method,
+            </if>
+            <if test="queryString != null">
+                query_string,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="userAgent != null">
+                user_agent,
+            </if>
+            <if test="routeName != null">
+                route_name,
+            </if>
+            <if test="serviceName != null">
+                service_name,
+            </if>
+            <if test="upstreamUri != null">
+                upstream_uri,
+            </if>
+            <if test="requestSize != null">
+                request_size,
+            </if>
+            <if test="contentLength != null">
+                content_length,
+            </if>
+            <if test="startedAt != null">
+                started_at,
+            </if>
+            <if test="requestBody != null">
+                request_body,
+            </if>
+            <if test="responseBody != null">
+                response_body,
+            </if>
+            <if test="retryCount != null">
+                retry_count,
+            </if>
+            <if test="customId != null">
+                custom_id,
+            </if>
+            <if test="proxyLatency != null">
+                proxy_latency,
+            </if>
+            <if test="kongLatency != null">
+                kong_latency,
+            </if>
+            <if test="requestLatency != null">
+                request_latency,
+            </if>
+            <if test="logMessage != null">
+                log_message,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="traceId != null">
+                #{traceId,jdbcType=VARCHAR},
+            </if>
+            <if test="requestUrl != null">
+                #{requestUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="remoteAddr != null">
+                #{remoteAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="requestMethod != null">
+                #{requestMethod,jdbcType=VARCHAR},
+            </if>
+            <if test="queryString != null">
+                #{queryString,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=SMALLINT},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userAgent != null">
+                #{userAgent,jdbcType=VARCHAR},
+            </if>
+            <if test="routeName != null">
+                #{routeName,jdbcType=VARCHAR},
+            </if>
+            <if test="serviceName != null">
+                #{serviceName,jdbcType=VARCHAR},
+            </if>
+            <if test="upstreamUri != null">
+                #{upstreamUri,jdbcType=VARCHAR},
+            </if>
+            <if test="requestSize != null">
+                #{requestSize,jdbcType=INTEGER},
+            </if>
+            <if test="contentLength != null">
+                #{contentLength,jdbcType=INTEGER},
+            </if>
+            <if test="startedAt != null">
+                #{startedAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="requestBody != null">
+                #{requestBody,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="responseBody != null">
+                #{responseBody,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="retryCount != null">
+                #{retryCount,jdbcType=INTEGER},
+            </if>
+            <if test="customId != null">
+                #{customId,jdbcType=VARCHAR},
+            </if>
+            <if test="proxyLatency != null">
+                #{proxyLatency,jdbcType=INTEGER},
+            </if>
+            <if test="kongLatency != null">
+                #{kongLatency,jdbcType=INTEGER},
+            </if>
+            <if test="requestLatency != null">
+                #{requestLatency,jdbcType=INTEGER},
+            </if>
+            <if test="logMessage != null">
+                #{logMessage,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+</mapper>

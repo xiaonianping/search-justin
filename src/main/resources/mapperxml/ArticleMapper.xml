@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.justin.search.mapper.ArticleMapper">
+  <resultMap id="BaseResultMap" type="com.justin.search.model.Article">
+    <!--@mbg.generated-->
+    <!--@Table tb_article-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="request_url" jdbcType="VARCHAR" property="requestUrl" />
+    <result column="sources_type" jdbcType="INTEGER" property="sourcesType" />
+    <result column="sources_url" jdbcType="VARCHAR" property="sourcesUrl" />
+    <result column="sources_gzh_id" jdbcType="BIGINT" property="sourcesGzhId" />
+    <result column="original_author" jdbcType="VARCHAR" property="originalAuthor" />
+    <result column="original_time" jdbcType="BIGINT" property="originalTime" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    <result column="risk_level" jdbcType="INTEGER" property="riskLevel" />
+    <result column="channel_id" jdbcType="BIGINT" property="channelId" />
+    <result column="creator_type" jdbcType="INTEGER" property="creatorType" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="share_title" jdbcType="VARCHAR" property="shareTitle" />
+    <result column="is_platform" jdbcType="INTEGER" property="isPlatform" />
+    <result column="auditor_id" jdbcType="BIGINT" property="auditorId" />
+    <result column="auditor_time" jdbcType="BIGINT" property="auditorTime" />
+    <result column="auditor_type" jdbcType="INTEGER" property="auditorType" />
+    <result column="publisher_id" jdbcType="BIGINT" property="publisherId" />
+    <result column="publisher_time" jdbcType="BIGINT" property="publisherTime" />
+    <result column="auditor_info" jdbcType="VARCHAR" property="auditorInfo" />
+    <result column="is_original" jdbcType="INTEGER" property="isOriginal" />
+    <result column="md5" jdbcType="VARCHAR" property="md5" />
+    <result column="is_warehousing" jdbcType="INTEGER" property="isWarehousing" />
+    <result column="speech_status" jdbcType="INTEGER" property="speechStatus" />
+    <result column="speech_url" jdbcType="VARCHAR" property="speechUrl" />
+    <result column="is_open_speech" jdbcType="INTEGER" property="isOpenSpeech" />
+    <result column="is_copyright" jdbcType="INTEGER" property="isCopyright" />
+    <result column="show_start_time" jdbcType="BIGINT" property="showStartTime" />
+    <result column="show_end_time" jdbcType="BIGINT" property="showEndTime" />
+    <result column="is_head_line" jdbcType="INTEGER" property="isHeadLine" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, summary, cover_url, `status`, parent_id, request_url, sources_type, sources_url,
+    sources_gzh_id, original_author, original_time, create_time, update_time, risk_level,
+    channel_id, creator_type, creator_id, share_title, is_platform, auditor_id, auditor_time,
+    auditor_type, publisher_id, publisher_time, auditor_info, is_original, md5, is_warehousing,
+    speech_status, speech_url, is_open_speech, is_copyright, show_start_time, show_end_time,
+    is_head_line
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from tb_article
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+
+  <select id="selectById" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from tb_article
+    where id > #{id} order by id limit #{size}
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from tb_article
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.justin.search.model.Article" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_article (title, summary, cover_url,
+      `status`, parent_id, request_url,
+      sources_type, sources_url, sources_gzh_id,
+      original_author, original_time, create_time,
+      update_time, risk_level, channel_id,
+      creator_type, creator_id, share_title,
+      is_platform, auditor_id, auditor_time,
+      auditor_type, publisher_id, publisher_time,
+      auditor_info, is_original, md5,
+      is_warehousing, speech_status, speech_url,
+      is_open_speech, is_copyright, show_start_time,
+      show_end_time, is_head_line)
+    values (#{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{coverUrl,jdbcType=VARCHAR},
+      #{status,jdbcType=INTEGER}, #{parentId,jdbcType=BIGINT}, #{requestUrl,jdbcType=VARCHAR},
+      #{sourcesType,jdbcType=INTEGER}, #{sourcesUrl,jdbcType=VARCHAR}, #{sourcesGzhId,jdbcType=BIGINT},
+      #{originalAuthor,jdbcType=VARCHAR}, #{originalTime,jdbcType=BIGINT}, #{createTime,jdbcType=BIGINT},
+      #{updateTime,jdbcType=BIGINT}, #{riskLevel,jdbcType=INTEGER}, #{channelId,jdbcType=BIGINT},
+      #{creatorType,jdbcType=INTEGER}, #{creatorId,jdbcType=BIGINT}, #{shareTitle,jdbcType=VARCHAR},
+      #{isPlatform,jdbcType=INTEGER}, #{auditorId,jdbcType=BIGINT}, #{auditorTime,jdbcType=BIGINT},
+      #{auditorType,jdbcType=INTEGER}, #{publisherId,jdbcType=BIGINT}, #{publisherTime,jdbcType=BIGINT},
+      #{auditorInfo,jdbcType=VARCHAR}, #{isOriginal,jdbcType=INTEGER}, #{md5,jdbcType=VARCHAR},
+      #{isWarehousing,jdbcType=INTEGER}, #{speechStatus,jdbcType=INTEGER}, #{speechUrl,jdbcType=VARCHAR},
+      #{isOpenSpeech,jdbcType=INTEGER}, #{isCopyright,jdbcType=INTEGER}, #{showStartTime,jdbcType=BIGINT},
+      #{showEndTime,jdbcType=BIGINT}, #{isHeadLine,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.justin.search.model.Article" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="coverUrl != null">
+        cover_url,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="requestUrl != null">
+        request_url,
+      </if>
+      <if test="sourcesType != null">
+        sources_type,
+      </if>
+      <if test="sourcesUrl != null">
+        sources_url,
+      </if>
+      <if test="sourcesGzhId != null">
+        sources_gzh_id,
+      </if>
+      <if test="originalAuthor != null">
+        original_author,
+      </if>
+      <if test="originalTime != null">
+        original_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="riskLevel != null">
+        risk_level,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="creatorType != null">
+        creator_type,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="shareTitle != null">
+        share_title,
+      </if>
+      <if test="isPlatform != null">
+        is_platform,
+      </if>
+      <if test="auditorId != null">
+        auditor_id,
+      </if>
+      <if test="auditorTime != null">
+        auditor_time,
+      </if>
+      <if test="auditorType != null">
+        auditor_type,
+      </if>
+      <if test="publisherId != null">
+        publisher_id,
+      </if>
+      <if test="publisherTime != null">
+        publisher_time,
+      </if>
+      <if test="auditorInfo != null">
+        auditor_info,
+      </if>
+      <if test="isOriginal != null">
+        is_original,
+      </if>
+      <if test="md5 != null">
+        md5,
+      </if>
+      <if test="isWarehousing != null">
+        is_warehousing,
+      </if>
+      <if test="speechStatus != null">
+        speech_status,
+      </if>
+      <if test="speechUrl != null">
+        speech_url,
+      </if>
+      <if test="isOpenSpeech != null">
+        is_open_speech,
+      </if>
+      <if test="isCopyright != null">
+        is_copyright,
+      </if>
+      <if test="showStartTime != null">
+        show_start_time,
+      </if>
+      <if test="showEndTime != null">
+        show_end_time,
+      </if>
+      <if test="isHeadLine != null">
+        is_head_line,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="coverUrl != null">
+        #{coverUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="requestUrl != null">
+        #{requestUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcesType != null">
+        #{sourcesType,jdbcType=INTEGER},
+      </if>
+      <if test="sourcesUrl != null">
+        #{sourcesUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcesGzhId != null">
+        #{sourcesGzhId,jdbcType=BIGINT},
+      </if>
+      <if test="originalAuthor != null">
+        #{originalAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="originalTime != null">
+        #{originalTime,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="riskLevel != null">
+        #{riskLevel,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="creatorType != null">
+        #{creatorType,jdbcType=INTEGER},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=BIGINT},
+      </if>
+      <if test="shareTitle != null">
+        #{shareTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="isPlatform != null">
+        #{isPlatform,jdbcType=INTEGER},
+      </if>
+      <if test="auditorId != null">
+        #{auditorId,jdbcType=BIGINT},
+      </if>
+      <if test="auditorTime != null">
+        #{auditorTime,jdbcType=BIGINT},
+      </if>
+      <if test="auditorType != null">
+        #{auditorType,jdbcType=INTEGER},
+      </if>
+      <if test="publisherId != null">
+        #{publisherId,jdbcType=BIGINT},
+      </if>
+      <if test="publisherTime != null">
+        #{publisherTime,jdbcType=BIGINT},
+      </if>
+      <if test="auditorInfo != null">
+        #{auditorInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="isOriginal != null">
+        #{isOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="md5 != null">
+        #{md5,jdbcType=VARCHAR},
+      </if>
+      <if test="isWarehousing != null">
+        #{isWarehousing,jdbcType=INTEGER},
+      </if>
+      <if test="speechStatus != null">
+        #{speechStatus,jdbcType=INTEGER},
+      </if>
+      <if test="speechUrl != null">
+        #{speechUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpenSpeech != null">
+        #{isOpenSpeech,jdbcType=INTEGER},
+      </if>
+      <if test="isCopyright != null">
+        #{isCopyright,jdbcType=INTEGER},
+      </if>
+      <if test="showStartTime != null">
+        #{showStartTime,jdbcType=BIGINT},
+      </if>
+      <if test="showEndTime != null">
+        #{showEndTime,jdbcType=BIGINT},
+      </if>
+      <if test="isHeadLine != null">
+        #{isHeadLine,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.justin.search.model.Article">
+    <!--@mbg.generated-->
+    update tb_article
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="coverUrl != null">
+        cover_url = #{coverUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="requestUrl != null">
+        request_url = #{requestUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcesType != null">
+        sources_type = #{sourcesType,jdbcType=INTEGER},
+      </if>
+      <if test="sourcesUrl != null">
+        sources_url = #{sourcesUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcesGzhId != null">
+        sources_gzh_id = #{sourcesGzhId,jdbcType=BIGINT},
+      </if>
+      <if test="originalAuthor != null">
+        original_author = #{originalAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="originalTime != null">
+        original_time = #{originalTime,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="riskLevel != null">
+        risk_level = #{riskLevel,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="creatorType != null">
+        creator_type = #{creatorType,jdbcType=INTEGER},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=BIGINT},
+      </if>
+      <if test="shareTitle != null">
+        share_title = #{shareTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="isPlatform != null">
+        is_platform = #{isPlatform,jdbcType=INTEGER},
+      </if>
+      <if test="auditorId != null">
+        auditor_id = #{auditorId,jdbcType=BIGINT},
+      </if>
+      <if test="auditorTime != null">
+        auditor_time = #{auditorTime,jdbcType=BIGINT},
+      </if>
+      <if test="auditorType != null">
+        auditor_type = #{auditorType,jdbcType=INTEGER},
+      </if>
+      <if test="publisherId != null">
+        publisher_id = #{publisherId,jdbcType=BIGINT},
+      </if>
+      <if test="publisherTime != null">
+        publisher_time = #{publisherTime,jdbcType=BIGINT},
+      </if>
+      <if test="auditorInfo != null">
+        auditor_info = #{auditorInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="isOriginal != null">
+        is_original = #{isOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="md5 != null">
+        md5 = #{md5,jdbcType=VARCHAR},
+      </if>
+      <if test="isWarehousing != null">
+        is_warehousing = #{isWarehousing,jdbcType=INTEGER},
+      </if>
+      <if test="speechStatus != null">
+        speech_status = #{speechStatus,jdbcType=INTEGER},
+      </if>
+      <if test="speechUrl != null">
+        speech_url = #{speechUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpenSpeech != null">
+        is_open_speech = #{isOpenSpeech,jdbcType=INTEGER},
+      </if>
+      <if test="isCopyright != null">
+        is_copyright = #{isCopyright,jdbcType=INTEGER},
+      </if>
+      <if test="showStartTime != null">
+        show_start_time = #{showStartTime,jdbcType=BIGINT},
+      </if>
+      <if test="showEndTime != null">
+        show_end_time = #{showEndTime,jdbcType=BIGINT},
+      </if>
+      <if test="isHeadLine != null">
+        is_head_line = #{isHeadLine,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.justin.search.model.Article">
+    <!--@mbg.generated-->
+    update tb_article
+    set title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      cover_url = #{coverUrl,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      request_url = #{requestUrl,jdbcType=VARCHAR},
+      sources_type = #{sourcesType,jdbcType=INTEGER},
+      sources_url = #{sourcesUrl,jdbcType=VARCHAR},
+      sources_gzh_id = #{sourcesGzhId,jdbcType=BIGINT},
+      original_author = #{originalAuthor,jdbcType=VARCHAR},
+      original_time = #{originalTime,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      risk_level = #{riskLevel,jdbcType=INTEGER},
+      channel_id = #{channelId,jdbcType=BIGINT},
+      creator_type = #{creatorType,jdbcType=INTEGER},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      share_title = #{shareTitle,jdbcType=VARCHAR},
+      is_platform = #{isPlatform,jdbcType=INTEGER},
+      auditor_id = #{auditorId,jdbcType=BIGINT},
+      auditor_time = #{auditorTime,jdbcType=BIGINT},
+      auditor_type = #{auditorType,jdbcType=INTEGER},
+      publisher_id = #{publisherId,jdbcType=BIGINT},
+      publisher_time = #{publisherTime,jdbcType=BIGINT},
+      auditor_info = #{auditorInfo,jdbcType=VARCHAR},
+      is_original = #{isOriginal,jdbcType=INTEGER},
+      md5 = #{md5,jdbcType=VARCHAR},
+      is_warehousing = #{isWarehousing,jdbcType=INTEGER},
+      speech_status = #{speechStatus,jdbcType=INTEGER},
+      speech_url = #{speechUrl,jdbcType=VARCHAR},
+      is_open_speech = #{isOpenSpeech,jdbcType=INTEGER},
+      is_copyright = #{isCopyright,jdbcType=INTEGER},
+      show_start_time = #{showStartTime,jdbcType=BIGINT},
+      show_end_time = #{showEndTime,jdbcType=BIGINT},
+      is_head_line = #{isHeadLine,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

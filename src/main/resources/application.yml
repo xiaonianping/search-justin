@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: search
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://175.178.241.47:5432/search?stringtype=unspecified
+    username: kong
+    password: kongPassword
+
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/happysales?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+
+
+mybatis:
+  mapper-locations: mapperxml/*.xml
+
+server:
+  port: 8090
+  servlet:
+    context-path: /search
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+
+logging:
+  file:
+    name: /opt/logs/${spring.application.name}.log
+
+elasticsearch:
+  address:
+    - schema: http
+      host: 175.178.241.47
+      port: 9200
+  connectTimeout: 50000
+  socketTimeout: 50000
+  connectionRequestTimeout: 50000
+  maxConnectNum: 10000
+  maxConnectPerRoute: 10000
+  userName: elastic
+  password: justin
