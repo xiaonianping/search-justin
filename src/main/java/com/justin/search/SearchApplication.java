@@ -11,11 +11,4 @@ public class SearchApplication {
         SpringApplication.run(SearchApplication.class, args);
     }
 
-
-    @Controller
-    public class DemoController {
-    //1
-        //2
-        //3
-    }
 }
