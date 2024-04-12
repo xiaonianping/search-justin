@@ -51,6 +51,7 @@ public class DubboUtil {
         Object result = genericService.$invoke("sendEmailFromDispatchCenter", parameterTypes, parameters);
         System.out.println(JSON.toJSONString(result));
 
+        System.out.println("1231231");
 
     }
 
